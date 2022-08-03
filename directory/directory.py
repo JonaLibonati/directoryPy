@@ -200,7 +200,7 @@ class File:
             if os.path.exists(new_path):
                 new_path = f'{dir.path}/{self.name}__copy{self.extension}'
             with open(new_path, 'wb') as fdestination:
-                   await asyncio.to_thread(shutil.copyfileobj, forigin, fdestination)
+                await asyncio.to_thread(shutil.copyfileobj, forigin, fdestination)
             copied_file = File(new_path)
         return copied_file
 

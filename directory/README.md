@@ -42,3 +42,33 @@ print(file.extension)
 Result:
 .txt
 ```
+
+### data()
+Return a dictionary with the dirpath, path, name and extension.
+```
+data = file.data()
+print(data)
+
+Result:
+{
+    'dirpath': '/Users/jonathanlibonati',
+    'path': '/Users/jonathanlibonati/exampleFile.txt',
+    'name': 'exampleFile',
+    'extension': '.txt'
+}
+```
+
+### rename(name: str)
+Renames the file and returns self. This method uses os.rename() function for renaming the file.
+```
+data = file.rename('new_name').data()
+print(data)
+
+Result:
+{
+    'dirpath': '/Users/jonathanlibonati',
+    'path': '/Users/jonathanlibonati/new_name.txt',
+    'name': 'new_name',
+    'extension': '.txt'
+}
+```
