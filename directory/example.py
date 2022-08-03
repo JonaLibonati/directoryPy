@@ -15,6 +15,7 @@ def main():
     for i, file in enumerate(dir.filesList()):
         print('')
         print(f'--File Path {i}: {file.path}')
+        print(f'--File Dir Path {i}: {file.dirpath}')
         print(f'--File Name {i}: {file.name}')
         print(f'--File Type {i}: {file.extension}')
         print(f'--File Data {i}: {file.data()}')

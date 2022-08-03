@@ -19,17 +19,26 @@ Result:
 ### dirpath
 Contains the absolute path as string of the directory where the file is located.  
 ```
+print(file.dirpath)
 
+Result:
+/Users/jonathanlibonati
 ```
 
 ### name
 Contains the file name as string without the extension.  
 ```
+print(file.name)
 
+Result:
+exampleFile
 ```
 
 ### extension
 Contains the file extension as string.  
 ```
+print(file.extension)
 
+Result:
+.txt
 ```
