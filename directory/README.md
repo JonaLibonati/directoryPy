@@ -72,3 +72,30 @@ Result:
     'extension': '.txt'
 }
 ```
+
+### copy(dir: Directory) - asynchronous
+Copies the file to an especific directory an returns the copied file object. The parameter is an Directory object.
+It is am asynchronous method, therefore it is "awaitable" and uses asyncio.
+
+For further information about Directory class, please search the information in this Readme.
+```
+import asyncio
+
+async def main():
+    file = File('jonathanlibonati/exampleFile.txt')
+    dir = Directory('/Users/jonathanlibonati/desktop')
+
+    copied_file = await file.copy(dir)
+
+    print(copied_file.data())
+
+asyncio.run(main())
+
+Result:
+{
+    'dirpath': '/Users/jonathanlibonati/desktop',
+    'path': '/Users/jonathanlibonati/desktop/exampleFile.txt',
+    'name': 'exampleFile',
+    'extension': '.txt'
+}
+```
