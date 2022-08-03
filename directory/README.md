@@ -3,16 +3,33 @@ This library is useful for working with structure of files and directories, faci
 
 ## Class File(path: str)
 This class creates a File object using a relative or absolute path.
-When __File('<new file's path>')__ is instantiated, If the file does not exist, an empty file is created.
+When __File('<new file's path>')__ is instantiated, If the file does not exist, an empty file is created.  
+
+```file = File('jonathanlibonati/exampleFile.txt')```
 
 ### path
-Contains the absolute path.  
+Contains the absolute path as string.  
+```
+print(file.path)
+
+Result:
+/Users/jonathanlibonati/exampleFile.txt
+```
 
 ### dirpath
-Contains the absolute path of the directory where the file is located.  
+Contains the absolute path as string of the directory where the file is located.  
+```
+
+```
 
 ### name
-Contains the file name without the extension.  
+Contains the file name as string without the extension.  
+```
+
+```
 
 ### extension
-Contains the file extension.  
+Contains the file extension as string.  
+```
+
+```
