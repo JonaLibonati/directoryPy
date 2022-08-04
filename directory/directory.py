@@ -30,7 +30,7 @@ class Directory:
     def _redifineAtributes(self):
         self.name = self.path.split('/')[-1]
 
-    def newDir(self, name):
+    def newDir(self, name: str):
         for dir in self.directories.values():
             if dir.name == name:
                 raise FileExistsError (f'Error. There is already a directory named {dir.name} in {self.path}')
@@ -40,8 +40,8 @@ class Directory:
 
     def data(self) -> dict:
         data = {
-            f'{self.name}_dir': self.selfData(),
-            'Content': self.contentData()
+            'selfData': self.selfData(),
+            'contentData': self.contentData()
         }
         return data
 
@@ -75,7 +75,7 @@ class Directory:
         if self.files != {}:
             self.removeFiles(*list(self.files.values()))
 
-    def removeDir(self, dir) -> None:
+    def removeDir(self, dir: Directory) -> None:
         try:
             dir.empty()
             self.directories.pop(dir.name)
@@ -85,7 +85,7 @@ class Directory:
         except OSError as e:
             print(f'Error when trying to delete directory. Please check if the directory {self.path} is empty. {e}')
 
-    def removeDirs(self, *args: File) -> None:
+    def removeDirs(self, *args: Directory) -> None:
         for arg in args:
             self.removeDir(arg)
 

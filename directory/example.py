@@ -38,6 +38,8 @@ def main():
     print(dir.files)
     print(dir.directories)
 
+    print(dir.data())
+
 """ async def dos():
     file = directory.File('/Users/jonathanlibonati/exampleFile.txt')
     dir = directory.Directory('/Users/jonathanlibonati/desktop')

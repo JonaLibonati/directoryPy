@@ -3,12 +3,12 @@ This library is useful for working with structure of files and directories, faci
 
 ## Class File(path: str)
 This class creates a File object using a relative or absolute path.
-When __File('<new file's path>')__ is instantiated, If the file does not exist, an empty file is created.  
+When __File('<new file's path>')__ is instantiated, If the file does not exist, an empty file is created.
 
 ```file = File('jonathanlibonati/exampleFile.txt')```
 
 ### path
-Contains the absolute path as string.  
+Contains the absolute path as string.
 ```
 print(file.path)
 
@@ -17,7 +17,7 @@ Result:
 ```
 
 ### dirpath
-Contains the absolute path as string of the directory where the file is located.  
+Contains the absolute path as string of the directory where the file is located.
 ```
 print(file.dirpath)
 
@@ -26,7 +26,7 @@ Result:
 ```
 
 ### name
-Contains the file name as string without the extension.  
+Contains the file name as string without the extension.
 ```
 print(file.name)
 
@@ -35,7 +35,7 @@ exampleFile
 ```
 
 ### extension
-Contains the file extension as string.  
+Contains the file extension as string.
 ```
 print(file.extension)
 
@@ -103,7 +103,7 @@ Result:
 ## Class Directory(path: str)
 This class creates a Directory object using a relative or absolute path. When __Directory('<new directory's path>')__ is instantiated, If the directory does not exist, an empty directory is created. if the directory already exists, all files and folders inside the directory are created and saved in Directory().file and Directory().directories properties.
 
-Folder used as example:  
+Folder used as example:
 ```
 🛣️ /Users/jonathanlibonati/exampleDir
 
@@ -124,7 +124,7 @@ Folder used as example:
 ```dir = Directory('/Users/jonathanlibonati/exampleDir')```
 
 ### path
-Contains the absolute path as string.  
+Contains the absolute path as string.
 ```
 print(dir.path)
 
@@ -133,7 +133,7 @@ Result:
 ```
 
 ### name
-Contains the directory name as string.  
+Contains the directory name as string.
 ```
 print(dir.name)
 
@@ -227,3 +227,136 @@ Result:
     |
     |-- 📄 subExampleFile1.txt
 ```
+### data()
+Return a dictionary with the information of root directory and all the files and directories inside.
+```
+data = dir.data()
+print(data)
+
+Result:
+{
+    'selfData': {
+        'path': '/Users/jonathanlibonati/exampleDir',
+        'name': 'exampleDir'},
+    'contentData': {
+        'exampleFile1_file': {
+            'dirpath': '/Users/jonathanlibonati/exampleDir',
+            'path': '/Users/jonathanlibonati/exampleDir/exampleFile1.txt',
+            'name': 'exampleFile1',
+            'extension': '.txt'},
+        'exampleFile2_file': {
+            'dirpath': '/Users/jonathanlibonati/exampleDir',
+            'path': '/Users/jonathanlibonati/exampleDir/exampleFile2.txt',
+            'name': 'exampleFile2',
+            'extension': '.txt'},
+        'subExampledir2_dir': {
+            'selfData': {
+                'path': '/Users/jonathanlibonati/exampleDir/subExampledir2',
+                'name': 'subExampledir2'},
+            'contentData': {
+                'subExampleFile2_file': {
+                    'dirpath': '/Users/jonathanlibonati/exampleDir/subExampledir2',
+                    'path': '/Users/jonathanlibonati/exampleDir/subExampledir2/subExampleFile2.txt',
+                    'name': 'subExampleFile2',
+                    'extension': '.txt'
+                }
+            }
+        },
+        'subExampledir1_dir': {
+            'selfData': {
+                'path': '/Users/jonathanlibonati/exampleDir/subExampledir1',
+                'name': 'subExampledir1'},
+            'contentData': {
+                'subExampleFile1_file': {
+                    'dirpath': '/Users/jonathanlibonati/exampleDir/subExampledir1',
+                    'path': '/Users/jonathanlibonati/exampleDir/subExampledir1/subExampleFile1.txt',
+                    'name': 'subExampleFile1',
+                    'extension': '.txt'
+                }
+            }
+        }
+    }
+}
+```
+
+### selfData()
+Return a dictionary with the information of root directory.
+```
+{
+   'path': '/Users/jonathanlibonati/exampleDir',
+   'name': 'exampleDir'
+}
+```
+
+### contentData()
+Return a dictionary with the information of all the files and directories inside.
+```
+data = dir.contentData()
+print(data)
+
+Result:
+{
+    'exampleFile1_file': {
+        'dirpath': '/Users/jonathanlibonati/exampleDir',
+        'path': '/Users/jonathanlibonati/exampleDir/exampleFile1.txt',
+        'name': 'exampleFile1',
+        'extension': '.txt'},
+    'exampleFile2_file': {
+        'dirpath': '/Users/jonathanlibonati/exampleDir',
+        'path': '/Users/jonathanlibonati/exampleDir/exampleFile2.txt',
+        'name': 'exampleFile2',
+        'extension': '.txt'},
+    'subExampledir2_dir': {
+        'selfData': {
+            'path': '/Users/jonathanlibonati/exampleDir/subExampledir2',
+            'name': 'subExampledir2'},
+        'contentData': {
+            'subExampleFile2_file': {
+                'dirpath': '/Users/jonathanlibonati/exampleDir/subExampledir2',
+                'path': '/Users/jonathanlibonati/exampleDir/subExampledir2/subExampleFile2.txt',
+                'name': 'subExampleFile2',
+                'extension': '.txt'
+            }
+        }
+    },
+    'subExampledir1_dir': {
+        'selfData': {
+            'path': '/Users/jonathanlibonati/exampleDir/subExampledir1',
+            'name': 'subExampledir1'},
+        'contentData': {
+            'subExampleFile1_file': {
+                'dirpath': '/Users/jonathanlibonati/exampleDir/subExampledir1',
+                'path': '/Users/jonathanlibonati/exampleDir/subExampledir1/subExampleFile1.txt',
+                'name': 'subExampleFile1',
+                'extension': '.txt'
+            }
+        }
+    }
+}
+```
+
+### newDir(name: str)
+
+### removeFile(file: File)
+
+### removeFiles(*args: File)
+
+### removeAllFiles()
+
+### removeDir(dir: Directory)
+
+### removeDirs(*args: Directory)
+
+### removeAllDirs()
+
+### empty()
+
+### addFiles(*args: File) - asynchronous
+
+### addDirectories(*args: Directory) - asynchronous
+
+### copyFilesTo(dir: Directory) - asynchronous
+
+### copyDirsTo(dir: Directory) - asynchronous
+
+### copy(self, dir: Directory) - asynchronous
