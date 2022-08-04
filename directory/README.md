@@ -175,10 +175,55 @@ Result:
 ```
 
 ### dirlist()
-Returns a list with the Files objects which are inside the directory.
+Returns a list with the Directory objects which are inside the directory.
 ```
 print(dir.fileslist())
 
 Result:
 [<Directory object 'subExampledir1'>, <Directory object 'subExampledir2'>]
+```
+
+### tree(levels: int)
+Prints on the terminal the tree of files and direcoties. The levels parameter indicates how deep to print.
+```
+dir.tree(0)
+
+Result:
+🛣️ /Users/jonathanlibonati/exampleDir
+
+📁 exampleDir
+```
+```
+dir.tree(1)
+
+Result:
+🛣️ /Users/jonathanlibonati/exampleDir
+
+📁 exampleDir
+|
+|-- 📄 exampleFile1.txt
+|-- 📄 exampleFile2.txt
+|
+|-- 📁 subExampledir2
+|
+|-- 📁 subExampledir1
+```
+```
+dir.tree()
+
+Result:
+🛣️ /Users/jonathanlibonati/exampleDir
+
+📁 exampleDir
+|
+|-- 📄 exampleFile1.txt
+|-- 📄 exampleFile2.txt
+|
+|-- 📁 subExampledir2
+|   |
+|   |-- 📄 subExampleFile2.txt
+|
+|-- 📁 subExampledir1
+    |
+    |-- 📄 subExampleFile1.txt
 ```

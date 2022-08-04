@@ -31,6 +31,8 @@ def main():
     print('====================================')
 
     dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
+    dir.tree(0)
+    dir.tree(1)
     dir.tree()
 
     print(dir.files)
