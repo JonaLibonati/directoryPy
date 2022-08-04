@@ -75,7 +75,7 @@ Result:
 
 ### copy(dir: Directory) - asynchronous
 Copies the file to an especific directory an returns the copied file object. The parameter is an Directory object.
-It is am asynchronous method, therefore it is "awaitable" and uses asyncio.
+It is an asynchronous method, therefore it is "awaitable" and uses asyncio.
 
 For further information about Directory class, please search the information in this Readme.
 ```
@@ -98,4 +98,85 @@ Result:
     'name': 'exampleFile',
     'extension': '.txt'
 }
+```
+
+## Class Directory(path: str)
+This class creates a Directory object using a relative or absolute path. When __Directory('<new directory's path>')__ is instantiated, If the directory does not exist, an empty directory is created. if the directory already exists, all files and folders inside the directory are created and saved in Directory().file and Directory().directories properties.
+
+Folder used as example:
+🛣️ /Users/jonathanlibonati/exampleDir
+
+📁 exampleDir
+|
+|-- 📄 exampleFile1.txt
+|-- 📄 exampleFile2.txt
+|
+|-- 📁 subExampledir2
+|   |
+|   |-- 📄 subExampleFile2.txt
+|
+|-- 📁 subExampledir1
+    |
+    |-- 📄 subExampleFile1.txt
+
+```dir = Directory('/Users/jonathanlibonati/exampleDir')```
+
+### path
+Contains the absolute path as string.  
+```
+print(dir.path)
+
+Result:
+/Users/jonathanlibonati/exampleDir
+```
+
+### name
+Contains the directory name as string.  
+```
+print(dir.name)
+
+Result:
+exampleDir
+```
+
+### files
+Contains a dictionary with the Files objects which are inside the directory.
+```
+print(dir.files)
+
+Result:
+{
+'exampleFile1.txt': <File object 'exampleFile1'>,
+'exampleFile2.txt': <File object 'exampleFile2'>
+}
+```
+
+### fileslist()
+Returns a list with the Files objects which are inside the directory.
+```
+print(dir.fileslist())
+
+Result:
+[<File object 'exampleFile1'>, <File object 'exampleFile2'>]
+```
+
+### directories
+Contains a dictionary with the Directory objects which are inside the directory.
+```
+print(dir.directories)
+
+Result:
+{
+'subExampledir1': <Directory object 'subExampledir1'>,
+'subExampledir2': <Directory object 'subExampledir2'>
+}
+```
+
+### dirlist()
+Returns a list with the Files objects which are inside the directory.
+```
+print(dir.fileslist())
+
+Result:
+[<Directory object 'subExampledir1'>, <Directory object 'subExampledir2'>]
 ```

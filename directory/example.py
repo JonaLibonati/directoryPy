@@ -1,4 +1,5 @@
 import directory
+import asyncio
 
 def main():
 
@@ -29,5 +30,20 @@ def main():
     dir.tree()
     print('====================================')
 
+    dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
+    dir.tree()
+
+    print(dir.files)
+    print(dir.directories)
+
+""" async def dos():
+    file = directory.File('/Users/jonathanlibonati/exampleFile.txt')
+    dir = directory.Directory('/Users/jonathanlibonati/desktop')
+
+    copied_file = await file.copy(dir)
+
+    print(copied_file.data()) """
+
 if __name__ == '__main__':
     main()
+    #asyncio.run(dos())
