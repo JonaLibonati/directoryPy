@@ -103,21 +103,21 @@ Result:
 ## Class Directory(path: str)
 This class creates a Directory object using a relative or absolute path. When __Directory('<new directory's path>')__ is instantiated, If the directory does not exist, an empty directory is created. if the directory already exists, all files and folders inside the directory are created and saved in Directory().file and Directory().directories properties.
 
-Folder used as example:
+Folder used as example:  
 🛣️ /Users/jonathanlibonati/exampleDir
 
-📁 exampleDir
-|
-|-- 📄 exampleFile1.txt
-|-- 📄 exampleFile2.txt
-|
-|-- 📁 subExampledir2
-|   |
-|   |-- 📄 subExampleFile2.txt
-|
-|-- 📁 subExampledir1
-    |
-    |-- 📄 subExampleFile1.txt
+📁 exampleDir  
+|  
+|-- 📄 exampleFile1.txt  
+|-- 📄 exampleFile2.txt  
+|  
+|-- 📁 subExampledir2  
+|   |  
+|   |-- 📄 subExampleFile2.txt  
+|  
+|-- 📁 subExampledir1  
+    |  
+    |-- 📄 subExampleFile1.txt  
 
 ```dir = Directory('/Users/jonathanlibonati/exampleDir')```
 
