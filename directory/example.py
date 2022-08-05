@@ -31,14 +31,21 @@ def main():
     print('====================================')
 
     dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
-    dir.tree(0)
-    dir.tree(1)
-    dir.tree()
-
+    """ dir.newFile('exampleFile1.txt')
+    dir.newFile('exampleFile2.txt') """
+    #dir.newDir('subExampledir3')
+    #file_1 = dir.files['exampleFile1.txt']
+    #file_2 = dir.files['exampleFile2.txt']
+    #dir.removeFiles(file_1, file_2)
+    dir.removeAllFiles()
     print(dir.files)
+    dir.tree(1)
+
+
+    """ print(dir.files)
     print(dir.directories)
 
-    print(dir.data())
+    print(dir.data()) """
 
 """ async def dos():
     file = directory.File('/Users/jonathanlibonati/exampleFile.txt')

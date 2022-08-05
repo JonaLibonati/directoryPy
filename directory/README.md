@@ -336,20 +336,112 @@ Result:
 ```
 
 ### newDir(name: str)
+Creates and returns a new directory inside the root directory. If the directory exists already, a FileExistsError is raised.
+```
+dir.newDir('subExampledir3')
+dir.tree(1)
+
+Result:
+🛣️ /Users/jonathanlibonati/exampleDir
+
+📁 exampleDir
+|
+|-- 📄 exampleFile1.txt
+|-- 📄 exampleFile2.txt
+|
+|-- 📁 subExampledir2
+|
+|-- 📁 subExampledir1
+|
+|-- 📁 subExampledir3
+```
+
+### newFile(name: str)
+Creates and returns a new empty file inside the root directory. If the file exists already, a FileExistsError is raised.
+```
+dir.newFile('exampleFile3.txt')
+dir.tree(1)
+
+Result:
+🛣️ /Users/jonathanlibonati/exampleDir
+
+📁 exampleDir
+|
+|-- 📄 exampleFile1.txt
+|-- 📄 exampleFile2.txt
+|-- 📄 exampleFile3.txt
+|
+|-- 📁 subExampledir2
+|
+|-- 📁 subExampledir1
+```
 
 ### removeFile(file: File)
+Removes an existing file inside the root directory.
+```
+file_1 = dir.files['exampleFile1.txt']
+dir.removeFile(file_1)
+
+Result:
+🛣️ /Users/jonathanlibonati/exampleDir
+
+📁 exampleDir
+|
+|-- 📄 exampleFile2.txt
+|
+|-- 📁 subExampledir2
+|
+|-- 📁 subExampledir1
+```
 
 ### removeFiles(*args: File)
+Removes multiple existing files inside the root directory.
+```
+file_1 = dir.files['exampleFile1.txt']
+file_2 = dir.files['exampleFile2.txt']
+dir.removeFiles(file_1, file_2)
+dir.tree(1)
+
+Result:
+🛣️ /Users/jonathanlibonati/exampleDir
+
+📁 exampleDir
+|
+|-- 📁 subExampledir2
+|
+|-- 📁 subExampledir1
+```
 
 ### removeAllFiles()
+Removes all files inside the root directory.
+```
+dir.removeAllFiles()
+print(dir.files)
+dir.tree(1)
+
+Result:
+{}
+
+🛣️ /Users/jonathanlibonati/exampleDir
+
+📁 exampleDir
+|
+|-- 📁 subExampledir2
+|
+|-- 📁 subExampledir1
+```
 
 ### removeDir(dir: Directory)
+Removes an existing directory inside the root directory.
 
 ### removeDirs(*args: Directory)
+Removes multiple existing directories inside the root directory.
 
 ### removeAllDirs()
+Removes all directories inside the root directory.
 
 ### empty()
+Removes all directories and files inside the root directory.
 
 ### addFiles(*args: File) - asynchronous
 

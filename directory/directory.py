@@ -27,16 +27,24 @@ class Directory:
                 d = Directory(path)
                 self.directories.update({d.name : d})
 
-    def _redifineAtributes(self):
+    def _redifineAtributes(self) -> None:
         self.name = self.path.split('/')[-1]
 
-    def newDir(self, name: str):
+    def newDir(self, name: str) -> Directory:
         for dir in self.directories.values():
             if dir.name == name:
                 raise FileExistsError (f'Error. There is already a directory named {dir.name} in {self.path}')
         new_dir = Directory(f'{self.path}/{name}')
         self.directories.update({new_dir.name : new_dir})
         return new_dir
+
+    def newFile(self, name: str) -> File:
+        for file in self.files.values():
+            if f'{file.name}{file.extension}' == name:
+                raise FileExistsError (f'Error. There is already a file named {file.name} in {self.path}')
+        f = File(f'{self.path}/{name}')
+        self.files.update({f'{f.name}{f.extension}' : f})
+        return f
 
     def data(self) -> dict:
         data = {
