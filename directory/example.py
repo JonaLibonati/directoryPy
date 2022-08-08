@@ -4,7 +4,7 @@ import asyncio
 def main():
 
     #REPLACE WITH A VALID DIRECTORY PATH
-    dir = directory.Directory('/Users/jonathanlibonati/Canvas')
+    dir = directory.Directory('/Users/jonathanlibonati/Desktop')
 
     print(dir.path)
     print('')
@@ -30,35 +30,5 @@ def main():
     dir.tree()
     print('====================================')
 
-    """  dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
-        dir.newFile('exampleFile1.txt')
-        dir.newFile('exampleFile2.txt')
-        dir.newDir('subExampledir1')
-        dir.newDir('subExampledir2')
-    #file_1 = dir.files['exampleFile1.txt']
-    #file_2 = dir.files['exampleFile2.txt']
-    #dir.removeFiles(file_1, file_2)
-    #sub_dir_1 = dir.directories['subExampledir1']
-    #sub_dir_2 = dir.directories['subExampledir2']
-    #print(dir.directories)
-    #print(dir.files)
-
-    #dir.tree(1)
-
-
-    print(dir.files)
-    print(dir.directories)
-
-    print(dir.data()) """
-
-async def dos():
-    dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
-    dir_a = directory.Directory('/Users/jonathanlibonati/dir_a')
-
-    await dir.copyAllTo(dir_a)
-
-    dir_a.tree()
-
 if __name__ == '__main__':
     main()
-    asyncio.run(dos())
