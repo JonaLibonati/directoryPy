@@ -433,15 +433,72 @@ Result:
 
 ### removeDir(dir: Directory)
 Removes an existing directory inside the root directory.
+```
+sub_dir_1 = dir.directories['subExampledir1']
+dir.removeDir(sub_dir_1)
+dir.tree(1)
 
+Result:
+🛣️ /Users/jonathanlibonati/exampleDir
+
+📁 exampleDir
+|
+|-- 📄 exampleFile1.txt
+|-- 📄 exampleFile2.txt
+|
+|-- 📁 subExampledir2
+```
 ### removeDirs(*args: Directory)
 Removes multiple existing directories inside the root directory.
+```
+sub_dir_1 = dir.directories['subExampledir1']
+sub_dir_2 = dir.directories['subExampledir2']
+dir.removeDirs(sub_dir_1, sub_dir_2)
+dir.tree(1)
+
+Result:
+🛣️ /Users/jonathanlibonati/exampleDir
+
+📁 exampleDir
+|
+|-- 📄 exampleFile1.txt
+|-- 📄 exampleFile2.txt
+```
 
 ### removeAllDirs()
 Removes all directories inside the root directory.
+```
+dir.removeAllDirs()
+print(dir.directories)
+dir.tree(1)
+
+Result:
+{}
+
+🛣️ /Users/jonathanlibonati/exampleDir
+
+📁 exampleDir
+|
+|-- 📄 exampleFile1.txt
+|-- 📄 exampleFile2.txt
+```
 
 ### empty()
 Removes all directories and files inside the root directory.
+```
+dir.empty()
+print(dir.directories)
+print(dir.files)
+dir.tree(1)
+
+Result:
+{}
+{}
+
+🛣️ /Users/jonathanlibonati/exampleDir
+
+📁 exampleDir
+```
 
 ### addFiles(*args: File) - asynchronous
 

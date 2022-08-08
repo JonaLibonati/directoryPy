@@ -33,11 +33,15 @@ def main():
     dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
     """ dir.newFile('exampleFile1.txt')
     dir.newFile('exampleFile2.txt') """
-    #dir.newDir('subExampledir3')
+    dir.newDir('subExampledir1')
+    dir.newDir('subExampledir2')
     #file_1 = dir.files['exampleFile1.txt']
     #file_2 = dir.files['exampleFile2.txt']
     #dir.removeFiles(file_1, file_2)
-    dir.removeAllFiles()
+    #sub_dir_1 = dir.directories['subExampledir1']
+    #sub_dir_2 = dir.directories['subExampledir2']
+    dir.empty()
+    print(dir.directories)
     print(dir.files)
     dir.tree(1)
 
