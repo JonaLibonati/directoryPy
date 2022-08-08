@@ -517,11 +517,13 @@ Result:
 ### addFiles(*args: File) - asynchronous
 Adds files to the root directory and returns it. It is an asynchronous method, therefore it is "awaitable" and uses asyncio.
 ```
-async def main():
-    dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
+import asyncio
 
-    file_a = directory.File('/Users/jonathanlibonati/file_a.txt')
-    file_b = directory.File('/Users/jonathanlibonati/file_b.txt')
+async def main():
+    dir = Directory('/Users/jonathanlibonati/exampleDir')
+
+    file_a = File('/Users/jonathanlibonati/file_a.txt')
+    file_b = File('/Users/jonathanlibonati/file_b.txt')
 
     await dir.addFiles(file_a, file_b)
 
@@ -547,11 +549,13 @@ Result:
 ### addDirectories(*args: Directory) - asynchronous
 Adds directories to the root directory and returns it. It is an asynchronous method, therefore it is "awaitable" and uses asyncio.
 ```
-async def main():
-    dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
+import asyncio
 
-    dir_a = directory.Directory('/Users/jonathanlibonati/dir_a')
-    dir_b = directory.Directory('/Users/jonathanlibonati/dir_b')
+async def main():
+    dir = Directory('/Users/jonathanlibonati/exampleDir')
+
+    dir_a = Directory('/Users/jonathanlibonati/dir_a')
+    dir_b = Directory('/Users/jonathanlibonati/dir_b')
 
     await dir.addDirectories(dir_a, dir_b)
 
@@ -579,9 +583,11 @@ Result:
 ### copyFilesTo(dir: Directory) - asynchronous
 Copies the files of the root directory to other directory. It is an asynchronous method, therefore it is "awaitable" and uses asyncio.
 ```
+import asyncio
+
 async def main():
-    dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
-    dir_a = directory.Directory('/Users/jonathanlibonati/dir_a')
+    dir = Directory('/Users/jonathanlibonati/exampleDir')
+    dir_a = Directory('/Users/jonathanlibonati/dir_a')
 
     await dir.copyFilesTo(dir_a)
 
@@ -601,9 +607,11 @@ Result:
 ### copyDirsTo(dir: Directory) - asynchronous
 Copies the directories of the root directory to other directory. It is an asynchronous method, therefore it is "awaitable" and uses asyncio.
 ```
+import asyncio
+
 async def main():
-    dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
-    dir_a = directory.Directory('/Users/jonathanlibonati/dir_a')
+    dir = Directory('/Users/jonathanlibonati/exampleDir')
+    dir_a = Directory('/Users/jonathanlibonati/dir_a')
 
     await dir.copyDirsTo(dir_a)
 
@@ -628,9 +636,11 @@ Result:
 ### copyAllTo(self, dir: Directory) - asynchronous
 Copies the files and directories of the root directory to other directory. It is an asynchronous method, therefore it is "awaitable" and uses asyncio.
 ```
+import asyncio
+
 async def main():
-    dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
-    dir_a = directory.Directory('/Users/jonathanlibonati/dir_a')
+    dir = Directory('/Users/jonathanlibonati/exampleDir')
+    dir_a = Directory('/Users/jonathanlibonati/dir_a')
 
     await dir.copyAllTo(dir_a)
 
@@ -658,9 +668,11 @@ Result:
 ### copy(self, dir: Directory) - asynchronous
 Copies the root directory to other directory. It is an asynchronous method, therefore it is "awaitable" and uses asyncio.
 ```
+import asyncio
+
 async def main():
-    dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
-    dir_a = directory.Directory('/Users/jonathanlibonati/dir_a')
+    dir = Directory('/Users/jonathanlibonati/exampleDir')
+    dir_a = Directory('/Users/jonathanlibonati/dir_a')
 
     await dir.copy(dir_a)
 
