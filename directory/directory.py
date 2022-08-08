@@ -120,15 +120,17 @@ class Directory:
         for file in self.files.values():
             await file.copy(dir)
 
-    async def copyDirsTo(self, dir: Directory):
+    async def copyDirsTo(self, dir: Directory) -> None:
         for directory in self.directories.values():
             await directory.copy(dir)
 
+    async def copyAllTo(self, dir: Directory) -> None:
+        await self.copyFilesTo(dir)
+        await self.copyDirsTo(dir)
+
     async def copy(self, dir: Directory) -> Directory:
         a = dir.newDir(self.name)
-        await self.copyFilesTo(a)
-        await self.copyDirsTo(a)
-        return a
+        await self.copyAllTo(a)
 
     def filesList(self):
         return list(self.files.values())
@@ -204,8 +206,10 @@ class File:
     async def copy(self, dir: Directory) -> File:
         with open(self.path, 'rb') as forigin:
             new_path = f'{dir.path}/{self.name}{self.extension}'
-            if os.path.exists(new_path):
-                new_path = f'{dir.path}/{self.name}__copy{self.extension}'
+            copy_string = ''
+            while os.path.exists(new_path):
+                copy_string = f'{copy_string}__copy'
+                new_path = f'{dir.path}/{self.name}{copy_string}{self.extension}'
             with open(new_path, 'wb') as fdestination:
                 await asyncio.to_thread(shutil.copyfileobj, forigin, fdestination)
             copied_file = File(new_path)

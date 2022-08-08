@@ -184,7 +184,7 @@ Result:
 ```
 
 ### tree(levels: int)
-Prints on the terminal the tree of files and direcoties. The levels parameter indicates how deep to print.
+Prints on the terminal the tree of files and directories. The levels parameter indicates how deep to print.
 ```
 dir.tree(0)
 
@@ -231,6 +231,7 @@ Result:
 Return a dictionary with the information of root directory and all the files and directories inside.
 ```
 data = dir.data()
+
 print(data)
 
 Result:
@@ -292,6 +293,7 @@ Return a dictionary with the information of root directory.
 Return a dictionary with the information of all the files and directories inside.
 ```
 data = dir.contentData()
+
 print(data)
 
 Result:
@@ -339,6 +341,7 @@ Result:
 Creates and returns a new directory inside the root directory. If the directory exists already, a FileExistsError is raised.
 ```
 dir.newDir('subExampledir3')
+
 dir.tree(1)
 
 Result:
@@ -360,6 +363,7 @@ Result:
 Creates and returns a new empty file inside the root directory. If the file exists already, a FileExistsError is raised.
 ```
 dir.newFile('exampleFile3.txt')
+
 dir.tree(1)
 
 Result:
@@ -380,6 +384,7 @@ Result:
 Removes an existing file inside the root directory.
 ```
 file_1 = dir.files['exampleFile1.txt']
+
 dir.removeFile(file_1)
 
 Result:
@@ -399,7 +404,9 @@ Removes multiple existing files inside the root directory.
 ```
 file_1 = dir.files['exampleFile1.txt']
 file_2 = dir.files['exampleFile2.txt']
+
 dir.removeFiles(file_1, file_2)
+
 dir.tree(1)
 
 Result:
@@ -416,6 +423,7 @@ Result:
 Removes all files inside the root directory.
 ```
 dir.removeAllFiles()
+
 print(dir.files)
 dir.tree(1)
 
@@ -435,7 +443,9 @@ Result:
 Removes an existing directory inside the root directory.
 ```
 sub_dir_1 = dir.directories['subExampledir1']
+
 dir.removeDir(sub_dir_1)
+
 dir.tree(1)
 
 Result:
@@ -453,7 +463,9 @@ Removes multiple existing directories inside the root directory.
 ```
 sub_dir_1 = dir.directories['subExampledir1']
 sub_dir_2 = dir.directories['subExampledir2']
+
 dir.removeDirs(sub_dir_1, sub_dir_2)
+
 dir.tree(1)
 
 Result:
@@ -469,6 +481,7 @@ Result:
 Removes all directories inside the root directory.
 ```
 dir.removeAllDirs()
+
 print(dir.directories)
 dir.tree(1)
 
@@ -487,6 +500,7 @@ Result:
 Removes all directories and files inside the root directory.
 ```
 dir.empty()
+
 print(dir.directories)
 print(dir.files)
 dir.tree(1)
@@ -501,11 +515,174 @@ Result:
 ```
 
 ### addFiles(*args: File) - asynchronous
+Adds files to the root directory and returns it. It is an asynchronous method, therefore it is "awaitable" and uses asyncio.
+```
+async def main():
+    dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
+
+    file_a = directory.File('/Users/jonathanlibonati/file_a.txt')
+    file_b = directory.File('/Users/jonathanlibonati/file_b.txt')
+
+    await dir.addFiles(file_a, file_b)
+
+    dir.tree(1)
+
+asyncio.run(main())
+
+Result:
+🛣️ /Users/jonathanlibonati/exampleDir
+
+📁 exampleDir
+|
+|-- 📄 exampleFile1.txt
+|-- 📄 exampleFile2.txt
+|-- 📄 file_a.txt
+|-- 📄 file_b.txt
+|
+|-- 📁 subExampledir2
+|
+|-- 📁 subExampledir1
+```
 
 ### addDirectories(*args: Directory) - asynchronous
+Adds directories to the root directory and returns it. It is an asynchronous method, therefore it is "awaitable" and uses asyncio.
+```
+async def main():
+    dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
+
+    dir_a = directory.Directory('/Users/jonathanlibonati/dir_a')
+    dir_b = directory.Directory('/Users/jonathanlibonati/dir_b')
+
+    await dir.addDirectories(dir_a, dir_b)
+
+    dir.tree(1)
+
+asyncio.run(main())
+
+Result:
+🛣️ /Users/jonathanlibonati/exampleDir
+
+📁 exampleDir
+|
+|-- 📄 exampleFile1.txt
+|-- 📄 exampleFile2.txt
+|
+|-- 📁 subExampledir2
+|
+|-- 📁 subExampledir1
+|
+|-- 📁 dir_a
+|
+|-- 📁 dir_b
+```
 
 ### copyFilesTo(dir: Directory) - asynchronous
+Copies the files of the root directory to other directory. It is an asynchronous method, therefore it is "awaitable" and uses asyncio.
+```
+async def main():
+    dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
+    dir_a = directory.Directory('/Users/jonathanlibonati/dir_a')
+
+    await dir.copyFilesTo(dir_a)
+
+    dir_a.tree(1)
+
+asyncio.run(main())
+
+Result:
+🛣️ /Users/jonathanlibonati/dir_a
+
+📁 dir_a
+|
+|-- 📄 exampleFile1.txt
+|-- 📄 exampleFile2.txt
+```
 
 ### copyDirsTo(dir: Directory) - asynchronous
+Copies the directories of the root directory to other directory. It is an asynchronous method, therefore it is "awaitable" and uses asyncio.
+```
+async def main():
+    dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
+    dir_a = directory.Directory('/Users/jonathanlibonati/dir_a')
+
+    await dir.copyDirsTo(dir_a)
+
+    dir_a.tree()
+
+asyncio.run(main())
+
+Result:
+🛣️ /Users/jonathanlibonati/dir_a
+
+📁 dir_a
+|
+|-- 📁 subExampledir2
+|   |
+|   |-- 📄 subExampleFile2.txt
+|
+|-- 📁 subExampledir1
+    |
+    |-- 📄 subExampleFile1.txt
+```
+
+### copyAllTo(self, dir: Directory) - asynchronous
+Copies the files and directories of the root directory to other directory. It is an asynchronous method, therefore it is "awaitable" and uses asyncio.
+```
+async def main():
+    dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
+    dir_a = directory.Directory('/Users/jonathanlibonati/dir_a')
+
+    await dir.copyAllTo(dir_a)
+
+    dir_a.tree()
+
+asyncio.run(main())
+
+Result:
+🛣️ /Users/jonathanlibonati/dir_a
+
+📁 dir_a
+|
+|-- 📄 exampleFile1.txt
+|-- 📄 exampleFile2.txt
+|
+|-- 📁 subExampledir2
+|   |
+|   |-- 📄 subExampleFile2.txt
+|
+|-- 📁 subExampledir1
+    |
+    |-- 📄 subExampleFile1.txt
+```
 
 ### copy(self, dir: Directory) - asynchronous
+Copies the root directory to other directory. It is an asynchronous method, therefore it is "awaitable" and uses asyncio.
+```
+async def main():
+    dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
+    dir_a = directory.Directory('/Users/jonathanlibonati/dir_a')
+
+    await dir.copy(dir_a)
+
+    dir_a.tree()
+
+asyncio.run(main())
+
+Result:
+🛣️ /Users/jonathanlibonati/dir_a
+
+📁 dir_a
+|
+|-- 📁 exampleDir
+    |
+    |-- 📄 exampleFile1.txt
+    |-- 📄 exampleFile2.txt
+    |
+    |-- 📁 subExampledir2
+    |   |
+    |   |-- 📄 subExampleFile2.txt
+    |
+    |-- 📁 subExampledir1
+        |
+        |-- 📄 subExampleFile1.txt
+```

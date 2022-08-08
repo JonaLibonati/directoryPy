@@ -30,35 +30,35 @@ def main():
     dir.tree()
     print('====================================')
 
-    dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
-    """ dir.newFile('exampleFile1.txt')
-    dir.newFile('exampleFile2.txt') """
-    dir.newDir('subExampledir1')
-    dir.newDir('subExampledir2')
+    """  dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
+        dir.newFile('exampleFile1.txt')
+        dir.newFile('exampleFile2.txt')
+        dir.newDir('subExampledir1')
+        dir.newDir('subExampledir2')
     #file_1 = dir.files['exampleFile1.txt']
     #file_2 = dir.files['exampleFile2.txt']
     #dir.removeFiles(file_1, file_2)
     #sub_dir_1 = dir.directories['subExampledir1']
     #sub_dir_2 = dir.directories['subExampledir2']
-    dir.empty()
-    print(dir.directories)
+    #print(dir.directories)
+    #print(dir.files)
+
+    #dir.tree(1)
+
+
     print(dir.files)
-    dir.tree(1)
-
-
-    """ print(dir.files)
     print(dir.directories)
 
     print(dir.data()) """
 
-""" async def dos():
-    file = directory.File('/Users/jonathanlibonati/exampleFile.txt')
-    dir = directory.Directory('/Users/jonathanlibonati/desktop')
+async def dos():
+    dir = directory.Directory('/Users/jonathanlibonati/exampleDir')
+    dir_a = directory.Directory('/Users/jonathanlibonati/dir_a')
 
-    copied_file = await file.copy(dir)
+    await dir.copyAllTo(dir_a)
 
-    print(copied_file.data()) """
+    dir_a.tree()
 
 if __name__ == '__main__':
     main()
-    #asyncio.run(dos())
+    asyncio.run(dos())
