@@ -698,3 +698,14 @@ Result:
         |
         |-- 📄 subExampleFile1.txt
 ```
+
+### findDirs([name_1, name_2 ...], deepLevel = -1):
+Finds and returns a list of dirs which matche with the list of names passed as parameter. By default, the searching is made on all the tree but it could be set by the deepLevel parameter.
+
+### findFilesByName([name_1, name_2 ...], deepLevel = -1):
+Finds and returns a list of Files which matche with the list of names passed as parameter. By default, the searching is made on all the tree but it could be set by the deepLevel parameter.
+
+### findFilesByExtension([extension_1, extension_2 ...], deepLevel = -1):
+Finds and returns a list of Files which matche with the list of extensions passed as parameter. By default, the searching is made on all the tree but it could be set by the deepLevel parameter.
+
+
