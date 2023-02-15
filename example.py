@@ -1,4 +1,6 @@
-import directory
+
+#IMPORT directory.py
+import src.directoryPy.directory as directory
 import asyncio
 
 def main():
