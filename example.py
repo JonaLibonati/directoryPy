@@ -1,12 +1,15 @@
 
-#IMPORT directory.py
+# IMPORT directory.py
 import src.directoryPy.directory as directory
 import asyncio
 
 def main():
 
-    #REPLACE WITH A VALID DIRECTORY PATH
-    dir = directory.Directory('/Users/jonathanlibonati/Desktop')
+    # REPLACE WITH A VALID DIRECTORY PATH
+    # mac
+    #dir = directory.Directory('/Users/jonathanlibonati/Desktop')
+    # windows
+    dir = directory.Directory('C:/Users/inter/Desktop/exampleDir')
 
     print(dir.path)
     print('')
@@ -31,6 +34,8 @@ def main():
     print('====================================')
     dir.tree()
     print('====================================')
+
+    dir.findDirs([])
 
 if __name__ == '__main__':
     main()

@@ -29,6 +29,7 @@ class Directory:
 
     def _redifineAtributes(self) -> None:
         self.name = self.path.split('/')[-1]
+        self.name = self.name.split('\\')[-1]
 
     def newDir(self, name: str) -> Directory:
         for dir in self.directories.values():
