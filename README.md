@@ -700,12 +700,95 @@ Result:
 ```
 
 ### findDirs([name_1, name_2 ...], deepLevel = -1):
-Finds and returns a list of dirs which matche with the list of names passed as parameter. By default, the searching is made on all the tree but it could be set by the deepLevel parameter.
+Finds and returns a list of dirs which match with the list of names passed as parameter. By default, the searching is made on all the tree but the scope of the search can be set by the deepLevel parameter.
+
+```
+dir_matches_list = dir.findDirs(["subExampledir1"])
+
+    for dir in dir_matches_list:
+        dir.tree()
+        print('====================================')
+
+Result:
+🛣️ /Users/jonathanlibonati/Desktop/exampleDir/subExampledir1
+
+📁 subExampledir1
+|
+|-- 📄 subExampleFile1.txt
+
+====================================
+
+🛣️ /Users/jonathanlibonati/Desktop/exampleDir/subExampledir2
+
+📁 subExampledir2
+|
+|-- 📄 subExampleFile2.txt
+
+====================================
+```
 
 ### findFilesByName([name_1, name_2 ...], deepLevel = -1):
-Finds and returns a list of Files which matche with the list of names passed as parameter. By default, the searching is made on all the tree but it could be set by the deepLevel parameter.
+Finds and returns a list of Files which match with the list of names passed as parameter. By default, the searching is made on all the tree but but the scope of the search can be set by the deepLevel parameter.
+
+```
+files_matches_list = dir.findFilesByName(["subExampleFile1"])
+
+    for file in files_matches_list:
+        print('')
+        print(f'--File Path: {file.path}')
+        print(f'--File Dir Path: {file.dirpath}')
+        print(f'--File Name: {file.name}')
+        print(f'--File Type: {file.extension}')
+        print(f'--File Data: {file.data()}')
+        print('====================================')
+
+Result:
+--File Path: /Users/jonathanlibonati/Desktop/exampleDir/subExampledir1/subExampleFile1.txt
+--File Dir Path: /Users/jonathanlibonati/Desktop/exampleDir/subExampledir1
+--File Name: subExampleFile1
+--File Type: .txt
+--File Data: {'dirpath': '/Users/jonathanlibonati/Desktop/exampleDir/subExampledir1', 'path': '/Users/jonathanlibonati/Desktop/exampleDir/subExampledir1/subExampleFile1.txt', 'name': 'subExampleFile1', 'extension': '.txt'}
+```
 
 ### findFilesByExtension([extension_1, extension_2 ...], deepLevel = -1):
-Finds and returns a list of Files which matche with the list of extensions passed as parameter. By default, the searching is made on all the tree but it could be set by the deepLevel parameter.
+Finds and returns a list of Files which match with the list of extensions passed as parameter. By default, the searching is made on all the tree but but the scope of the search can be set by the deepLevel parameter.
+
+```
+files_matches_list = dir.findFilesByExtension([".txt"])
+
+    for file in files_matches_list:
+        print('')
+        print(f'--File Path: {file.path}')
+        print(f'--File Dir Path: {file.dirpath}')
+        print(f'--File Name: {file.name}')
+        print(f'--File Type: {file.extension}')
+        print('====================================')
+
+Result:
+--File Path: /Users/jonathanlibonati/Desktop/exampleDir/exampleFile1.txt
+--File Dir Path: /Users/jonathanlibonati/Desktop/exampleDir
+--File Name: exampleFile1
+--File Type: .txt
+====================================
+
+--File Path: /Users/jonathanlibonati/Desktop/exampleDir/exampleFile2.txt
+--File Dir Path: /Users/jonathanlibonati/Desktop/exampleDir
+--File Name: exampleFile2
+--File Type: .txt
+====================================
+
+--File Path: /Users/jonathanlibonati/Desktop/exampleDir/subExampledir1/subExampleFile1.txt
+--File Dir Path: /Users/jonathanlibonati/Desktop/exampleDir/subExampledir1
+--File Name: subExampleFile1
+--File Type: .txt
+====================================
+
+--File Path: /Users/jonathanlibonati/Desktop/exampleDir/subExampledir2/subExampleFile2.txt
+--File Dir Path: /Users/jonathanlibonati/Desktop/exampleDir/subExampledir2
+--File Name: subExampleFile2
+--File Type: .txt
+====================================
+```
+
 
 
