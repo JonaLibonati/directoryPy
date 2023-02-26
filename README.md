@@ -3,17 +3,23 @@ This library is useful for working with structure of files and directories, faci
 
 __Installing:__
 
-```pip install directoryPy```
+```
+pip install directoryPy
+```
 
 __Importing:__
 
-```from directoryPy import directory```
+```
+from directoryPy import directory
+```
 
 ## Class File(path: str)
 This class creates a File object using a relative or absolute path.
 When __File('<new file's path>')__ is instantiated, If the file does not exist, an empty file is created.
 
-```file = File('jonathanlibonati/exampleFile.txt')```
+```
+file = File('jonathanlibonati/exampleFile.txt')
+```
 
 ### path
 Contains the absolute path as string.
