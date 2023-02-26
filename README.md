@@ -11,7 +11,8 @@ When __File('<new file's path>')__ is instantiated, If the file does not exist, 
 Contains the absolute path as string.
 ```
 print(file.path)
-
+```
+```
 Result:
 /Users/jonathanlibonati/exampleFile.txt
 ```
@@ -20,7 +21,8 @@ Result:
 Contains the absolute path as string of the directory where the file is located.
 ```
 print(file.dirpath)
-
+```
+```
 Result:
 /Users/jonathanlibonati
 ```
@@ -29,7 +31,8 @@ Result:
 Contains the file name as string without the extension.
 ```
 print(file.name)
-
+```
+```
 Result:
 exampleFile
 ```
@@ -38,7 +41,8 @@ exampleFile
 Contains the file extension as string.
 ```
 print(file.extension)
-
+```
+```
 Result:
 .txt
 ```
@@ -48,7 +52,8 @@ Return a dictionary with the dirpath, path, name and extension.
 ```
 data = file.data()
 print(data)
-
+```
+```
 Result:
 {
     'dirpath': '/Users/jonathanlibonati',
@@ -63,7 +68,8 @@ Renames the file and returns self. This method uses os.rename() function for ren
 ```
 data = file.rename('new_name').data()
 print(data)
-
+```
+```
 Result:
 {
     'dirpath': '/Users/jonathanlibonati',
@@ -90,7 +96,8 @@ async def main():
     print(copied_file.data())
 
 asyncio.run(main())
-
+```
+```
 Result:
 {
     'dirpath': '/Users/jonathanlibonati/desktop',
@@ -127,7 +134,8 @@ Folder used as example:
 Contains the absolute path as string.
 ```
 print(dir.path)
-
+```
+```
 Result:
 /Users/jonathanlibonati/exampleDir
 ```
@@ -136,7 +144,8 @@ Result:
 Contains the directory name as string.
 ```
 print(dir.name)
-
+```
+```
 Result:
 exampleDir
 ```
@@ -145,7 +154,8 @@ exampleDir
 Contains a dictionary with the Files objects which are inside the directory.
 ```
 print(dir.files)
-
+```
+```
 Result:
 {
 'exampleFile1.txt': <File object 'exampleFile1'>,
@@ -157,7 +167,8 @@ Result:
 Returns a list with the Files objects which are inside the directory.
 ```
 print(dir.fileslist())
-
+```
+```
 Result:
 [<File object 'exampleFile1'>, <File object 'exampleFile2'>]
 ```
@@ -166,7 +177,8 @@ Result:
 Contains a dictionary with the Directory objects which are inside the directory.
 ```
 print(dir.directories)
-
+```
+```
 Result:
 {
 'subExampledir1': <Directory object 'subExampledir1'>,
@@ -178,7 +190,8 @@ Result:
 Returns a list with the Directory objects which are inside the directory.
 ```
 print(dir.fileslist())
-
+```
+```
 Result:
 [<Directory object 'subExampledir1'>, <Directory object 'subExampledir2'>]
 ```
@@ -187,7 +200,8 @@ Result:
 Prints on the terminal the tree of files and directories. The levels parameter indicates how deep to print.
 ```
 dir.tree(0)
-
+```
+```
 Result:
 🛣️ /Users/jonathanlibonati/exampleDir
 
@@ -195,7 +209,8 @@ Result:
 ```
 ```
 dir.tree(1)
-
+```
+```
 Result:
 🛣️ /Users/jonathanlibonati/exampleDir
 
@@ -210,7 +225,8 @@ Result:
 ```
 ```
 dir.tree()
-
+```
+```
 Result:
 🛣️ /Users/jonathanlibonati/exampleDir
 
@@ -233,7 +249,8 @@ Return a dictionary with the information of root directory and all the files and
 data = dir.data()
 
 print(data)
-
+```
+```
 Result:
 {
     'selfData': {
@@ -282,6 +299,12 @@ Result:
 
 ### selfData()
 Return a dictionary with the information of root directory.
+
+```
+data = dir.selfData()
+
+print(data)
+```
 ```
 {
    'path': '/Users/jonathanlibonati/exampleDir',
@@ -295,7 +318,8 @@ Return a dictionary with the information of all the files and directories inside
 data = dir.contentData()
 
 print(data)
-
+```
+```
 Result:
 {
     'exampleFile1_file': {
@@ -343,7 +367,8 @@ Creates and returns a new directory inside the root directory. If the directory 
 dir.newDir('subExampledir3')
 
 dir.tree(1)
-
+```
+```
 Result:
 🛣️ /Users/jonathanlibonati/exampleDir
 
@@ -365,7 +390,8 @@ Creates and returns a new empty file inside the root directory. If the file exis
 dir.newFile('exampleFile3.txt')
 
 dir.tree(1)
-
+```
+```
 Result:
 🛣️ /Users/jonathanlibonati/exampleDir
 
@@ -386,7 +412,8 @@ Removes an existing file inside the root directory.
 file_1 = dir.files['exampleFile1.txt']
 
 dir.removeFile(file_1)
-
+```
+```
 Result:
 🛣️ /Users/jonathanlibonati/exampleDir
 
@@ -408,7 +435,8 @@ file_2 = dir.files['exampleFile2.txt']
 dir.removeFiles(file_1, file_2)
 
 dir.tree(1)
-
+```
+```
 Result:
 🛣️ /Users/jonathanlibonati/exampleDir
 
@@ -426,7 +454,8 @@ dir.removeAllFiles()
 
 print(dir.files)
 dir.tree(1)
-
+```
+```
 Result:
 {}
 
@@ -447,7 +476,8 @@ sub_dir_1 = dir.directories['subExampledir1']
 dir.removeDir(sub_dir_1)
 
 dir.tree(1)
-
+```
+```
 Result:
 🛣️ /Users/jonathanlibonati/exampleDir
 
@@ -467,7 +497,8 @@ sub_dir_2 = dir.directories['subExampledir2']
 dir.removeDirs(sub_dir_1, sub_dir_2)
 
 dir.tree(1)
-
+```
+```
 Result:
 🛣️ /Users/jonathanlibonati/exampleDir
 
@@ -484,7 +515,8 @@ dir.removeAllDirs()
 
 print(dir.directories)
 dir.tree(1)
-
+```
+```
 Result:
 {}
 
@@ -504,7 +536,8 @@ dir.empty()
 print(dir.directories)
 print(dir.files)
 dir.tree(1)
-
+```
+```
 Result:
 {}
 {}
@@ -530,7 +563,8 @@ async def main():
     dir.tree(1)
 
 asyncio.run(main())
-
+```
+```
 Result:
 🛣️ /Users/jonathanlibonati/exampleDir
 
@@ -562,7 +596,8 @@ async def main():
     dir.tree(1)
 
 asyncio.run(main())
-
+```
+```
 Result:
 🛣️ /Users/jonathanlibonati/exampleDir
 
@@ -594,7 +629,8 @@ async def main():
     dir_a.tree(1)
 
 asyncio.run(main())
-
+```
+```
 Result:
 🛣️ /Users/jonathanlibonati/dir_a
 
@@ -618,7 +654,8 @@ async def main():
     dir_a.tree()
 
 asyncio.run(main())
-
+```
+```
 Result:
 🛣️ /Users/jonathanlibonati/dir_a
 
@@ -647,7 +684,8 @@ async def main():
     dir_a.tree()
 
 asyncio.run(main())
-
+```
+```
 Result:
 🛣️ /Users/jonathanlibonati/dir_a
 
@@ -679,7 +717,8 @@ async def main():
     dir_a.tree()
 
 asyncio.run(main())
-
+```
+```
 Result:
 🛣️ /Users/jonathanlibonati/dir_a
 
@@ -708,7 +747,8 @@ dir_matches_list = dir.findDirs(["subExampledir1"])
     for dir in dir_matches_list:
         dir.tree()
         print('====================================')
-
+```
+```
 Result:
 🛣️ /Users/jonathanlibonati/Desktop/exampleDir/subExampledir1
 
@@ -741,7 +781,8 @@ files_matches_list = dir.findFilesByName(["subExampleFile1"])
         print(f'--File Type: {file.extension}')
         print(f'--File Data: {file.data()}')
         print('====================================')
-
+```
+```
 Result:
 --File Path: /Users/jonathanlibonati/Desktop/exampleDir/subExampledir1/subExampleFile1.txt
 --File Dir Path: /Users/jonathanlibonati/Desktop/exampleDir/subExampledir1
@@ -763,7 +804,8 @@ files_matches_list = dir.findFilesByExtension([".txt"])
         print(f'--File Name: {file.name}')
         print(f'--File Type: {file.extension}')
         print('====================================')
-
+```
+```
 Result:
 --File Path: /Users/jonathanlibonati/Desktop/exampleDir/exampleFile1.txt
 --File Dir Path: /Users/jonathanlibonati/Desktop/exampleDir
