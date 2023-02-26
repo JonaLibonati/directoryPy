@@ -1,5 +1,7 @@
-# Directory.py
+# directory.py
 This library is useful for working with structure of files and directories, facilitating the tasks related with those structures, such as getting information, copying, renaming and creating files and directories.
+
+```from directoryPy import directory```
 
 ## Class File(path: str)
 This class creates a File object using a relative or absolute path.
