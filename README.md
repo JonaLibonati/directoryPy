@@ -1,6 +1,10 @@
 # directory.py
 This library is useful for working with structure of files and directories, facilitating the tasks related with those structures, such as getting information, copying, renaming and creating files and directories.
 
+Installing:
+```pip install directoryPy```
+
+Importing:
 ```from directoryPy import directory```
 
 ## Class File(path: str)
